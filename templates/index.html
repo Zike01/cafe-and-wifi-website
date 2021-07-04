@@ -1,0 +1,61 @@
+{% include 'header.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Cafe and WiFi</h1>
+        </div>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{{ url_for('add_cafe' )}}" role="button">Add Cafe</a>
+        </p>
+    </div>
+    
+    <div class="album py-5 bg-light">
+        <div class="container" style="width: 1500px;padding: 0 20px;">
+            <div class="row">
+                {% for cafe in cafes: %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="{{ cafe.img_url }}" alt="cafe-image">
+
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h3 class="cafe-name">{{ cafe.name }}</h3>
+                                <p class="location">{{ cafe.location }}</p>
+                                <p class="seats">Seats: {{ cafe.seats }}</p>
+                                <p class="price">{{ cafe.coffee_price }}</p>
+                                <div class="amenities">
+                                    {% if cafe.has_sockets:%}
+                                        <i class="fas fa-plug"></i>
+                                    {% endif %}
+
+                                    {% if cafe.has_toilet:%}
+                                        <i class="fas fa-toilet"></i>
+                                    {% endif %}
+
+                                    {% if cafe.has_wifi:%}
+                                        <i class="fas fa-wifi"></i>
+                                    {% endif %}
+
+                                    {% if cafe.can_take_calls:%}
+                                        <i class="fas fa-phone"></i>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <!-- <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock%}
+
+{% include 'footer.html' %}

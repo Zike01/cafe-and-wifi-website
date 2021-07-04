@@ -1,0 +1,68 @@
+body {
+    background-color: #84CCEB;
+    font-family: 'Otomanopee One', sans-serif;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: #5AB9EA;
+    color: white;
+}
+
+.card {
+    border-radius: 10%;
+    margin-bottom: 20px;
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+    border-radius: 10% 10% 0 0;
+}
+
+.card-text {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.cafe-name {
+    font-weight: bold;
+}
+
+.location {
+    color: #474747;
+    font-style: italic;
+}
+
+.seats, .price {
+    color: gray;
+}
+
+.cafe-name, .location, .seats {
+    margin-bottom: 0;
+}
+
+.form {
+    width: 70%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.footer {
+    background-color: #5AB9EA;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    float:left;
+    clear:none;  
+}
+
+.footer a {
+    color: inherit;
+}
+
