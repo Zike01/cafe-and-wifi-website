@@ -43,7 +43,7 @@ class AddForm(FlaskForm):
     has_wifi = BooleanField("Has Wifi")
     can_take_calls = BooleanField("Can Take Calls")
     seats = StringField("Number of Seats", validators=[DataRequired()])
-    coffee_price = FloatField("Coffee Price (£)", validators=[DataRequired()])
+    coffee_price = StringField("Coffee Price (£)", validators=[DataRequired()])
     submit = SubmitField("Add Cafe")
 
 
@@ -62,6 +62,12 @@ def add_cafe():
             flash("That cafe has already been added.", "danger")
             return redirect(url_for('add_cafe'))
         
+        
+        if "£" not in form.coffee_price.data:
+            coffee_price = f"£{form.coffee_price.data}"
+        else:
+            coffee_price = form.coffee_price.data
+        
         new_cafe = Cafe(
             name = form.name.data,
             map_url = form.map_url.data,
@@ -72,7 +78,7 @@ def add_cafe():
             has_wifi = form.has_wifi.data,
             can_take_calls = form.can_take_calls.data,
             seats = form.seats.data,
-            coffee_price = f"£{form.coffee_price.data}",
+            coffee_price = coffee_price,
         )
         
         db.session.add(new_cafe)
