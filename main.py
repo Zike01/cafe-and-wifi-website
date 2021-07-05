@@ -30,7 +30,7 @@ class Cafe(db.Model):
     coffee_price = db.Column(db.String(50), nullable=False)
 
 
-# db.create_all()
+db.create_all()
 
 
 class AddForm(FlaskForm):
