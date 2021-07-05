@@ -2,11 +2,21 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
+    
+
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3">Add Cafe</h1>
     </div>
 </div>
+
+{% for message in get_flashed_messages(with_categories=True) %}
+    <div class="alert alert-{{ message[0] }}">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message[1] }}
+    </div>
+{% endfor %}
+
 <div class="form">
     {{ wtf.quick_form(form, novalidate=True) }}
 </div>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
@@ -56,6 +56,12 @@ def home():
 def add_cafe():
     form = AddForm()
     if form.validate_on_submit():
+        cafe = Cafe.query.filter_by(name=form.name.data)
+        
+        if cafe:
+            flash("That cafe has already been added.", "danger")
+            return redirect(url_for('add_cafe'))
+        
         new_cafe = Cafe(
             name = form.name.data,
             map_url = form.map_url.data,
@@ -71,6 +77,7 @@ def add_cafe():
         
         db.session.add(new_cafe)
         db.session.commit()
+        flash(f"{new_cafe.name} Added!", "success")
         return redirect(url_for('add_cafe'))
     return render_template("add.html", form=form)
 

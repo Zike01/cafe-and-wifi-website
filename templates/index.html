@@ -15,8 +15,10 @@
             <div class="row">
                 {% for cafe in cafes: %}
                 <div class="col-md-4">
+                    <a class="maps-link" href="{{ cafe.map_url}}" target="_blank">
                     <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="{{ cafe.img_url }}" alt="cafe-image">
+                        <img src="https://placekitten.com/408/287" alt="cafe-img" class="card-img-top">
+                        <!-- <img class="card-img-top" src="{{ cafe.img_url }}" alt="cafe-image"> -->
 
                         <div class="card-body">
                             <div class="card-text">
@@ -50,6 +52,7 @@
                             </div> -->
                         </div>
                     </div>
+                    </a>
                 </div>
                 {% endfor %}
             </div>
