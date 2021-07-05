@@ -3,6 +3,10 @@ body {
     font-family: 'Otomanopee One', sans-serif;
 }
 
+h2 {
+    font-size: 1em;
+}
+
 .jumbotron {
     text-align: center;
     background-color: #5AB9EA;
