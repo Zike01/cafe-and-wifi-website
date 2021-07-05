@@ -56,12 +56,6 @@ def home():
 def add_cafe():
     form = AddForm()
     if form.validate_on_submit():
-        cafe = Cafe.query.filter_by(name=form.name.data)
-        
-        if cafe:
-            flash("That cafe has already been added.", "danger")
-            return redirect(url_for('add_cafe'))
-        
         new_cafe = Cafe(
             name = form.name.data,
             map_url = form.map_url.data,
