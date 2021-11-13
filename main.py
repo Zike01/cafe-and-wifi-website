@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, SubmitField, FloatField
+from wtforms import StringField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, URL
 import os
 from dotenv import load_dotenv
